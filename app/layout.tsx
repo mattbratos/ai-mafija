@@ -2,6 +2,8 @@ import type React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,7 +25,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
       </head>
-      <body className={cn(inter.className, "bg-black")}>{children}</body>
+      <body className={cn(inter.className, "bg-black font-mono")}>
+        <div className="crt-effect">
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </body>
     </html>
   )
 }
