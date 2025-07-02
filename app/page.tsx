@@ -1,0 +1,365 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { Instagram, Music, Youtube, ChevronDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export default function AIMafijaWebsite() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const rappers = [
+    {
+      id: 1,
+      nickname: "CyberFlow",
+      description: "Neural network wordsmith",
+      image: "/placeholder.svg?height=150&width=150",
+    },
+    {
+      id: 2,
+      nickname: "QuantumMC",
+      description: "Algorithmic beat architect",
+      image: "/placeholder.svg?height=150&width=150",
+    },
+    {
+      id: 3,
+      nickname: "NeonVerse",
+      description: "Digital street philosopher",
+      image: "/placeholder.svg?height=150&width=150",
+    },
+    {
+      id: 4,
+      nickname: "CodeBreaker",
+      description: "Binary rhythm hacker",
+      image: "/placeholder.svg?height=150&width=150",
+    },
+  ]
+
+  if (!mounted) return null
+
+  return (
+    <div className="min-h-screen bg-black text-white font-mono overflow-x-hidden relative crt-effect">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b-2 border-cyan-400/50 shadow-[0_0_20px_rgba(0,255,255,0.3)]">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-3xl font-black tracking-wider pixelated-font text-transparent bg-gradient-to-r from-green-400 via-cyan-400 to-pink-500 bg-clip-text drop-shadow-[0_0_10px_rgba(0,255,255,0.8)] glitch-text">
+            AI MAFIJA
+          </div>
+          <div className="flex space-x-8">
+            {["Home", "Rappers", "Links"].map((item) => (
+              <button
+                key={item}
+                className="text-gray-300 hover:text-cyan-400 transition-all duration-300 font-bold tracking-wide text-lg relative group pixelated-font pixelated-hover"
+                style={{
+                  textShadow: "0 0 10px rgba(0, 255, 255, 0.5)",
+                }}
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-green-400 to-pink-500 group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.8)]"></span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col justify-center items-center relative px-6">
+        <div className="text-center space-y-12 max-w-4xl">
+          {/* Main Title with Extreme Glow */}
+          <h1
+            className="text-8xl md:text-[150px] font-black text-transparent bg-gradient-to-r from-green-400 via-cyan-400 to-pink-500 bg-clip-text glitch-text-mega tracking-wider pixelated-font"
+            style={{
+              textShadow: `
+                0 0 10px rgba(0, 255, 255, 1),
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 40px rgba(255, 0, 255, 0.6),
+                0 0 80px rgba(0, 255, 0, 0.4)
+              `,
+            }}
+          >
+            AI MAFIJA
+          </h1>
+
+          {/* Tagline with Distortion */}
+          <p
+            className="text-2xl md:text-3xl text-gray-200 font-bold tracking-widest pixelated-font"
+            style={{
+              textShadow: "0 0 15px rgba(0, 255, 255, 0.7), 0 0 30px rgba(255, 0, 255, 0.5)",
+            }}
+          >
+            FUTUREWAVE RAP. FROM THE GRID, FOR THE STREET.
+          </p>
+
+          {/* CTA Button with Hardcore Styling */}
+          <Button
+            onClick={() => scrollToSection("rappers")}
+            className="mt-16 bg-transparent border-4 border-cyan-400 text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-pink-500 hover:text-black transition-all duration-500 px-12 py-6 text-xl font-black tracking-wider shadow-[0_0_30px_rgba(0,255,255,0.8)] hover:shadow-[0_0_50px_rgba(0,255,255,1)] group glitch-button pixelated-font"
+          >
+            MEET THE MAFIJA
+            <ChevronDown className="ml-3 w-6 h-6 group-hover:animate-bounce" />
+          </Button>
+        </div>
+
+        {/* Enhanced Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown
+            className="w-10 h-10 text-cyan-400 opacity-80"
+            style={{
+              filter: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.8))",
+            }}
+          />
+        </div>
+      </section>
+
+      {/* Rappers Section with Square Cards */}
+      <section id="rappers" className="py-24 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-5xl md:text-7xl font-black text-center mb-20 text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-green-400 bg-clip-text glitch-text-strong tracking-wider pixelated-font"
+            style={{
+              textShadow: `
+                0 0 15px rgba(255, 0, 255, 1),
+                0 0 30px rgba(0, 255, 0, 0.8),
+                0 0 60px rgba(0, 255, 255, 0.6)
+              `,
+            }}
+          >
+            THE COLLECTIVE
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {rappers.map((rapper) => (
+              <div
+                key={rapper.id}
+                className="group relative bg-black/60 backdrop-blur-sm border-2 border-gray-700 rounded-lg p-8 hover:border-cyan-400 transition-all duration-700 hover:shadow-[0_0_40px_rgba(0,255,255,0.6)] glitch-card aspect-square flex flex-col justify-center"
+              >
+                {/* Enhanced Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-cyan-400/20 to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-green-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+
+                <div className="relative z-10 text-center space-y-6 flex flex-col justify-center h-full">
+                  {/* Profile Image with Bigger Size */}
+                  <div className="relative mx-auto w-36 h-36">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-pink-500 rounded-full blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-700 shadow-[0_0_40px_rgba(0,255,255,0.8)]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500 animate-ping"></div>
+                    <img
+                      src={rapper.image || "/placeholder.svg"}
+                      alt={rapper.nickname}
+                      className="relative w-full h-full rounded-full border-3 border-gray-600 group-hover:border-cyan-400 transition-all duration-500 object-cover shadow-[0_0_20px_rgba(0,255,255,0.5)] group-hover:shadow-[0_0_40px_rgba(0,255,255,1)] glitch-image"
+                    />
+                  </div>
+
+                  {/* Nickname with Pixelated Font */}
+                  <h3
+                    className="text-2xl font-black text-transparent bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text tracking-wider pixelated-font"
+                    style={{
+                      textShadow: "0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 0, 0.6)",
+                    }}
+                  >
+                    {rapper.nickname}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors duration-500 font-bold tracking-wide pixelated-font">
+                    {rapper.description}
+                  </p>
+
+                  {/* Social Icons with Enhanced Effects */}
+                  <div className="flex justify-center space-x-6 pt-4">
+                    {[Instagram, Music, Youtube].map((Icon, index) => (
+                      <button
+                        key={index}
+                        className="p-3 text-gray-400 hover:text-pink-400 transition-all duration-500 hover:scale-125 border border-gray-600 rounded-full hover:border-pink-400 hover:shadow-[0_0_20px_rgba(236,72,153,1)] glitch-icon"
+                      >
+                        <Icon className="w-6 h-6" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with Enhanced Styling */}
+      <footer className="border-t-2 border-cyan-400/50 py-10 px-6 bg-black/80 backdrop-blur-md shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <div
+            className="text-lg text-gray-400 font-bold tracking-wider pixelated-font"
+            style={{
+              textShadow: "0 0 10px rgba(0, 255, 255, 0.5)",
+            }}
+          >
+            © AI MAFIJA 2025
+          </div>
+          <div className="flex space-x-8">
+            {["Home", "Rappers", "Links"].map((item) => (
+              <button
+                key={item}
+                className="text-lg text-gray-400 hover:text-cyan-400 transition-all duration-300 font-bold tracking-wide hover:shadow-[0_0_15px_rgba(0,255,255,0.8)] pixelated-font"
+                style={{
+                  textShadow: "0 0 8px rgba(0, 255, 255, 0.4)",
+                }}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        .pixelated-font {
+          font-family: 'VT323', 'Courier New', monospace;
+          image-rendering: pixelated;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: crisp-edges;
+          font-weight: 400; /* VT323 is best at 400 */
+          letter-spacing: 0.1em;
+        }
+        
+        .crt-effect {
+          position: relative;
+        }
+        
+        .crt-effect::before, .crt-effect::after {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          z-index: 9999;
+        }
+        
+        .crt-effect::before {
+          background: 
+            linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+            linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+          background-size: 100% 4px, 3px 100%;
+          animation: crt-scanline 10s linear infinite;
+        }
+        
+        .crt-effect::after {
+          background-image: 
+            radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+          background-size: 3px 3px;
+          animation: crt-noise 0.15s linear infinite;
+        }
+        
+        @keyframes crt-scanline {
+          0% { background-position: 0 0; }
+          100% { background-position: 0 100%; }
+        }
+        
+        @keyframes crt-noise {
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.15; }
+        }
+        
+        .glitch-text, .glitch-text-strong, .glitch-text-mega {
+          position: relative;
+        }
+        
+        .glitch-text::before, .glitch-text::after,
+        .glitch-text-strong::before, .glitch-text-strong::after,
+        .glitch-text-mega::before, .glitch-text-mega::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: black;
+          overflow: hidden;
+          clip-path: inset(50% 0 50% 0);
+        }
+        
+        .glitch-text::before {
+          left: -2px;
+          text-shadow: -1px 0 red;
+          animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch-text::after {
+          left: 2px;
+          text-shadow: -1px 0 blue;
+          animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch-text-mega::before {
+          left: -3px;
+          text-shadow: -2px 0 #ff00c1;
+          animation: glitch-anim-1 1.5s infinite linear alternate-reverse;
+        }
+        
+        .glitch-text-mega::after {
+          left: 3px;
+          text-shadow: -2px 0 #00fff9;
+          animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+          0% { clip-path: inset(40% 0 60% 0); }
+          20% { clip-path: inset(10% 0 85% 0); }
+          40% { clip-path: inset(50% 0 50% 0); }
+          60% { clip-path: inset(20% 0 70% 0); }
+          80% { clip-path: inset(80% 0 10% 0); }
+          100% { clip-path: inset(50% 0 50% 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+          0% { clip-path: inset(2% 0 98% 0); }
+          20% { clip-path: inset(90% 0 2% 0); }
+          40% { clip-path: inset(40% 0 55% 0); }
+          60% { clip-path: inset(70% 0 20% 0); }
+          80% { clip-Iath: inset(10% 0 80% 0); }
+          100% { clip-path: inset(45% 0 50% 0); }
+        }
+        
+        .glitch-card:hover {
+          animation: glitch-subtle 0.5s infinite;
+        }
+        
+        @keyframes glitch-subtle {
+          0%, 100% { transform: translate(0); }
+          50% { transform: translate(-1px, 1px); }
+        }
+        
+        .glitch-image:hover {
+          animation: glitch-image 0.8s infinite;
+        }
+        
+        @keyframes glitch-image {
+          0%, 100% { filter: hue-rotate(0deg); }
+          25% { filter: hue-rotate(90deg); }
+          50% { filter: hue-rotate(180deg); }
+          75% { filter: hue-rotate(270deg); }
+        }
+        
+        .glitch-icon:hover {
+          animation: glitch-icon 0.4s infinite;
+        }
+        
+        @keyframes glitch-icon {
+          0%, 100% { transform: rotate(0deg) scale(1); }
+          25% { transform: rotate(-5deg) scale(1.1); }
+          50% { transform: rotate(5deg) scale(1.2); }
+          75% { transform: rotate(-3deg) scale(1.1); }
+        }
+      `}</style>
+    </div>
+  )
+}
