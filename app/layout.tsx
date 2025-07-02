@@ -1,23 +1,20 @@
-import type React from "react"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { cn } from "@/lib/utils"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import type React from 'react'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { cn } from '@/lib/utils'
+import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/footer'
+import { siteConfig } from '@/config/site'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "AI Mafija",
-  description: "Futurewave rap. From the grid, for the street.",
-    generator: 'v0.dev'
+  title: siteConfig.title,
+  description: siteConfig.description,
+  generator: 'v0.dev',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -25,8 +22,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
       </head>
-      <body className={cn(inter.className, "bg-black font-mono")}>
-        <div className="crt-effect">
+      <body className={cn(inter.className, 'bg-black font-mono')}>
+        <div className="">
           <Navigation />
           <main>{children}</main>
           <Footer />
